@@ -1,34 +1,17 @@
 <template>
-     <body>
-    <router-link to="/form"><v-btn
-        class="ma-2"
-        color="primary"
-        dark
-      >
-        <v-icon justify="space-around">mdi-account-plus</v-icon>Add User</v-btn>
-      </router-link> 
-
-
-     <v-tabs>
-    <v-tab>Full Name</v-tab>
-    <v-tab>Address</v-tab>
-    <v-tab>city</v-tab>
-    <v-tab>State</v-tab>
-    <v-tab>Zip Code</v-tab>
-    <v-tab>Phone</v-tab>
-    <v-tab>Action</v-tab>
-  </v-tabs>
-
-
-  </body>
-  
-
+<DisplayVue/>
 </template>
 
 
 <script>
+
+import DisplayVue from './Display.vue'
+
   export default {
     name: 'HelloWorld',
+    components:{
+    DisplayVue,
+  }
   }
    
 </script>
