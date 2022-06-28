@@ -38,9 +38,10 @@
           <th class="text-left">
             Email
           </th>
-           <th class="text-left">
+          <th class="text-left">
             Actions
           </th>
+
         </tr>
       </thead>
       <tbody>
@@ -56,7 +57,10 @@
           <td class="text-left">{{ Contact.zipcode }}</td>
           <td class="text-left">{{ Contact.phoneNo }}</td>
           <td class="text-left">{{ Contact.email }}</td>
-         
+         <td>
+           <v-icon @click="remove(Contact.id)">mdi-delete</v-icon>
+          <v-icon @click="updateContact(Contact.id)">mdi-pencil</v-icon>
+          </td>
         </tr>
       </tbody>
     </template>
@@ -69,19 +73,47 @@
 
 <script>
   import Service from '../Service';
+ 
 export default {
   name: "DisplayHome",
   data() {
     return {
       Contacts: [],
+      
     };
+    
   },
+ 
+  
   methods: {
     getEmployee() {
       Service.getAllContact().then((response) => {
         console.log(response.data.data);
         this.Contacts = response.data.data;
       });
+    },
+      updateContact(id) {
+      this.$router.push({ name: "EditForm", params: { id: id } });
+    },
+
+    remove(id) {
+      var answer = window.confirm(
+        "Data once deleted can not be restored[] Do you wish to continue ?"
+      );
+      if (answer === true) {
+        Service
+          .deleteContact(id)
+          .then((data) => {
+            alert("Contact Deleted SuccessFully!!");
+            window.location.reload();
+            this.getAllContact();
+          })
+          .catch((error) => {
+           console.log(error);
+          });
+      } else {
+        window.location.reload();
+      }
     },
   },
    created() {
