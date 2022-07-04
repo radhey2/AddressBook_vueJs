@@ -24,6 +24,14 @@ class service{
         return axios.put(`${Addressbook_url}/update/${id}`,data);
     }
 
+    getsortCity() {
+        return axios.get(`${Addressbook_url}/get/sortbycity`);
+      }
+   
+    getsortState() {
+        return axios.get(`${Addressbook_url}/get/sortbystate`);
+      }
+
 }
 
 export default new service()

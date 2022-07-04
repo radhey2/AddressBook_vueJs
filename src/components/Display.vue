@@ -23,10 +23,10 @@
           <th class="text-left">
             Address
           </th>
-          <th class="text-left">
+          <th class="text-left" @click="getsortCity()">
             City
           </th>
-          <th class="text-left">
+          <th class="text-left" @click="getsortState()">
             State
           </th>
           <th class="text-left">
@@ -92,6 +92,21 @@ export default {
         this.Contacts = response.data.data;
       });
     },
+
+      getsortCity(){
+            Service.getsortCity().then((response) => {
+              console.log(response.data.data);
+                this.Contacts = response.data.data;   
+            });
+        },
+
+      getsortState(){
+            Service.getsortState().then((response) => {
+              console.log(response.data.data);
+                this.Contacts = response.data.data;   
+            });
+        },
+
       updateContact(id) {
       this.$router.push({ name: "EditForm", params: { id: id } });
     },
