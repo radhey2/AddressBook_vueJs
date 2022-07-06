@@ -1,15 +1,17 @@
 <template>
+
      <body>
       <router-link to="/form"><v-btn 
         color="primary"
         absolute
         right
         >
-        <v-icon>mdi-account-plus</v-icon>Add User</v-btn>
+        
+        <v-icon>mdi-account-plus</v-icon>Add User</v-btn> 
         <h2>Persons Details</h2>
-      
+     
       </router-link> 
-      
+
   <v-simple-table>
     <template v-slot:default>
       <thead>

@@ -1,16 +1,21 @@
 <template>
+<div>
 <DisplayVue/>
+<loginform/>
+</div>
 </template>
 
 
 <script>
 
 import DisplayVue from './Display.vue'
+import loginform from './loginform.vue'
 
   export default {
     name: 'HelloWorld',
     components:{
     DisplayVue,
+    loginform
   }
   }
    
