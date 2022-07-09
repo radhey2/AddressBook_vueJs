@@ -1,7 +1,7 @@
 <template>
 <div>
+  <Header></Header>
 <DisplayVue/>
-<loginform/>
 </div>
 </template>
 
@@ -9,13 +9,13 @@
 <script>
 
 import DisplayVue from './Display.vue'
-import loginform from './loginform.vue'
+import Header from './Header.vue'
 
   export default {
     name: 'HelloWorld',
     components:{
     DisplayVue,
-    loginform
+    Header
   }
   }
    

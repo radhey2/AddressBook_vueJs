@@ -1,5 +1,5 @@
 <template>
-
+<v-app>
   <v-row justify="center">
     <v-col
       cols="12"
@@ -7,7 +7,7 @@
       md="8"
       lg="6"
     >
-         <v-app-bar
+    <v-app-bar
       color="primary"
       dark
     >
@@ -17,9 +17,7 @@
             </pre>
             </div>
       <h2>Person Address Form</h2>
-      
-      
-        </v-app-bar>
+      </v-app-bar>
       <v-card ref="form">
         <v-card-text>
           <v-text-field
@@ -136,13 +134,17 @@
       </v-card>
     </v-col>
   </v-row>
-
+</v-app>
 </template>
 
 <script>
 import service from '../Service.js'
+import Header from './Header'
   export default {
     name:'form',
+    component: {
+      Header
+    },
     data: () => ({
       states: ['Andhra Pradesh', 'Arunachal Pradesh', 'Asam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujrat', 'Haryana', 'HP', 'Jarkhand', 'Karnataka', 'kerela', 'MP', 'Maharastrta', 'Manipur', 'Meghalay', 'Mizoram', 'Nagaland', 'Odisha', 'Panjab', 'Rajasthan', 'Sikkiam', 'TamilNadu', 'Tripura','Telengana','UK','UP','WB'],
       cities: ['Ajmer','Barmer','Baran','Bansawada','Bikaner','Bhilwara','Bundi','Churu','Chittorgarh','Dosa','Dungarpur','Dholpur','Ganganagar','Jaipur','Jaisalmer','Jodhpur','Jalawar','Jalor','Junjunnu','Hunumangarh','Kota','Karoli','Nagaor','Pali','Rajsamand','Tonk','Sirohi','Sikar','Pratapgarh','Sawai-Madhopur','Udaipur'],

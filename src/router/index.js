@@ -2,11 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import EditForm from '../components/EditForm.vue'
-import loginform from '../components/loginform.vue'
+import Login from '../components/Login.vue'
 
-import auth from "../Middleware/auth";
-import middlewarePipeline from "../Middleware/middleware-pipeline";
-import guest from "../Middleware/guest";
+
 
 Vue.use(VueRouter)
 
@@ -28,19 +26,13 @@ const routes = [
     path: '/editform/:id?',
     name: 'EditForm',
     component:EditForm
-  },
-
+  },  
+  
   {
-    path: '/loginform',
-    name: '/loginform',
-    meta: {
-      middleware: [
-          auth, guest
-      ]
-  },
-
-    components: loginform
-  }
+    path: '/Login',
+    name: 'Login',
+    component:Login
+  },  
 
 ]
 

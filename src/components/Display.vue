@@ -1,18 +1,18 @@
 <template>
-
-     <body>
+  
+     <v-app>
       <router-link to="/form"><v-btn 
         color="primary"
         absolute
         right
         >
-        
-        <v-icon>mdi-account-plus</v-icon>Add User</v-btn> 
-        <h2>Persons Details</h2>
+         <v-icon>mdi-account-plus</v-icon>Add User</v-btn> 
+       </router-link> 
+       
+      <h2 color="#0063e2">Persons Details</h2>
      
-      </router-link> 
-
   <v-simple-table>
+    
     <template v-slot:default>
       <thead>
         <tr>
@@ -67,17 +67,21 @@
       </tbody>
     </template>
   </v-simple-table>
-  </body>
+ 
   
-
+</v-app>
 </template>
 
 
 <script>
   import Service from '../Service';
+  import Header from './Header'
  
 export default {
-  name: "DisplayHome",
+  name: "Display",
+  component:{
+    Header
+  },
   data() {
     return {
       Contacts: [],
@@ -88,6 +92,8 @@ export default {
  
   
   methods: {
+  // A method that is called when the component is created. It is calling the getAllContact() method in
+  // the Service.js file.
     getEmployee() {
       Service.getAllContact().then((response) => {
         console.log(response.data.data);
@@ -95,6 +101,7 @@ export default {
       });
     },
 
+     // Calling the getsortCity() method in the Service.js file.
       getsortCity(){
             Service.getsortCity().then((response) => {
               console.log(response.data.data);
@@ -102,6 +109,7 @@ export default {
             });
         },
 
+    // Calling the getsortState() method in the Service.js file.
       getsortState(){
             Service.getsortState().then((response) => {
               console.log(response.data.data);
@@ -109,10 +117,14 @@ export default {
             });
         },
 
+    // This is a method that is called when the user clicks on the pencil icon. It is pushing the user
+    // to the EditForm component.
       updateContact(id) {
       this.$router.push({ name: "EditForm", params: { id: id } });
     },
 
+   // This is a method that is called when the user clicks on the delete icon. It is deleting the user
+   //     // from the database.
     remove(id) {
       var answer = window.confirm(
         "Data once deleted can not be restored[] Do you wish to continue ?"
@@ -133,6 +145,7 @@ export default {
       }
     },
   },
+   // Calling the getEmployee() method when the component is created.
    created() {
     this.getEmployee();
   },

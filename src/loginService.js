@@ -7,7 +7,10 @@ class loginService{
     addContact(data){
         return axios.post(`${UserRegistration_url}/create`,data);
     }
-
+    
+    login(data){
+        return axios.post(`${UserRegistration_url}/login`,data);
+    }
     
 }
 
